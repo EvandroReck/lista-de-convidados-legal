@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuestList Pro | Gestão de Convidados</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Lista de Convidados</h1>
+            <p>Gerencie seu evento com estilo</p>
+        </header>
+
+        <section class="input-section">
+            <div class="glass-card">
+                <input type="text" id="guestInput" placeholder="Digite o nome do convidado...">
+                <button onclick="addGuest()">Adicionar</button>
+            </div>
+        </section>
+
+        <section class="controls-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="searchGuest()" placeholder="🔍 Pesquisar por nome...">
+            </div>
+            
+            <div class="filters-container">
+                <div class="filter-group">
+                    <span>Letras:</span>
+                    <button class="filter-btn" onclick="filterByLength(1)">1</button>
+                    <button class="filter-btn" onclick="filterByLength(2)">2</button>
+                    <button class="filter-btn" onclick="filterByLength(3)">3</button>
+                    <button class="filter-btn" onclick="filterByLength(4)">4</button>
+                    <button class="filter-btn" onclick="filterByLength(5)">5+</button>
+                </div>
+
+                <div class="filter-group dropdown-container">
+                    <button class="special-filter" onclick="toggleAlphabet()">
+                        Inicial: <span id="selectedLetter">Qualquer</span> <span id="arrow">▼</span>
+                    </button>
+                    <div id="alphabetMenu" class="alphabet-grid hidden">
+                        </div>
+                </div>
+
+                <button class="filter-btn reset" onclick="resetFilters()">Limpar Filtros</button>
+            </div>
+            <div id="counter">Total: 0 convidados</div>
+        </section>
+
+        <section class="table-section">
+            <div class="glass-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome do Convidado</th>
+                            <th>Qtd. Letras</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guestTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
